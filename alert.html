@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>alert警告框</title>
+		<link rel="stylesheet" type="text/css" href="css/dialog.css"/>
+		<script type="text/javascript" src="js/dialog.min.js"></script>
+		<style  type="text/css">
+			body{
+				font-family: "微软雅黑";
+			}
+			button{
+				border: none;
+				background-color: #E2E2E2;
+				padding: 6px 12px;
+				border: 1px solid #CCCCCC;
+				border-radius: 3px;
+				outline: none;
+				cursor: pointer;
+			}
+			.code{
+				font-size: 14px;
+				width: 500px;
+				padding: 10px;
+				margin: 10px 0;
+				color: #FFFFFF;
+				border-radius: 3px;
+				background-color: #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<button id="button-alert">默认行为的alert</button>
+			<div class="code">
+				dialog.alert("hi, 我是alert");
+			</div>
+			<button id="button-alert-close">点击遮照可关闭的alert</button>
+			<div class="code">
+				dialog.alert("hi, 我是alert", {<br/>
+				&nbsp;&nbsp;title: "点击阴影部分关闭我",<br/>
+				&nbsp;&nbsp;shadeClose: true  //点击阴影可关闭<br/>
+				});
+			</div>
+			<button id="button-alert-style">指定样式的alert</button>
+			<div class="code">
+				dialog.alert("hi, 我是alert", {<br/>
+				&nbsp;&nbsp;title: "我是自定义样式的警告框哦",<br/>
+				&nbsp;&nbsp;shadeClose: true,  //点击阴影可关闭<br/>
+				&nbsp;&nbsp;//设置标题样式，css属性名采用驼峰命名规则<br/>
+				&nbsp;&nbsp;titleStyle: {<br/>
+				&nbsp;&nbsp;	color: "#FFFFFF",<br/>
+				&nbsp;&nbsp;	backgroundColor: "#4F4F4F"<br/>
+				&nbsp;&nbsp;},<br/>
+				&nbsp;&nbsp;//设置按钮样式，css属性名采用驼峰命名规则<br/>
+				&nbsp;&nbsp;buttonStyle: {<br/>
+				&nbsp;&nbsp;	color: "#000000",<br/>
+				&nbsp;&nbsp;	border: "1px solid #DEDEDE",<br/>
+				&nbsp;&nbsp;	backgroundColor: "#EEEEEE"<br/>
+				&nbsp;&nbsp;}<br/>
+				});
+			</div>
+			<button id="button-alert-animation">指定动画的alert</button>
+			<div class="code">
+					dialog.alert("hi, 我是alert", {<br/>
+					&nbsp;&nbsp;shadeClose: true,  //点击阴影可关闭<br/>
+					&nbsp;&nbsp;animationType: "zoom"  //zoom动画<br/>
+					});
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//可设置的参数
+		//width: 260,  //默认宽
+		//height: 146,  //默认高
+		//title："信息",  //标题。默认为"信息"
+		//showClose: true,  //是否显示关闭按钮。默认true
+		//shadeClose: true,  //点击阴影是否可关闭。默认false
+		//animationType: "bounce",  //动画：bounce，fade，zoom。默认bounce
+		//设置标题样式，css属性名采用驼峰命名规则
+		/*titleStyle: {
+			color: "#FFFFFF",
+			backgroundColor: "#4F4F4F",
+		},
+		//设置按钮样式，css属性名采用驼峰命名规则
+		buttonStyle: {
+			color: "#000000",
+			border: "1px solid #DEDEDE",
+			backgroundColor: "#EEEEEE",
+		}*/
+		document.getElementById("button-alert").onclick = function(){
+			dialog.alert("hi, 我是alert");
+		};
+		document.getElementById("button-alert-close").onclick = function(){
+			dialog.alert("hi, 我是alert", {
+				title: "点击阴影部分关闭我",
+				shadeClose: true  //点击阴影可关闭
+			});
+		};
+		document.getElementById("button-alert-style").onclick = function(){
+			dialog.alert("hi, 我是alert", {
+				title: "我是自定义样式的警告框哦",
+				shadeClose: true,  //点击阴影可关闭
+				//设置标题样式，css属性名采用驼峰命名规则
+				titleStyle: {
+					color: "#FFFFFF",
+					backgroundColor: "#4F4F4F"
+				},
+				//设置按钮样式，css属性名采用驼峰命名规则
+				buttonStyle: {
+					color: "#000000",
+					border: "1px solid #DEDEDE",
+					backgroundColor: "#EEEEEE"
+				}
+			});
+		};
+		document.getElementById("button-alert-animation").onclick = function(){
+			dialog.alert("hi, 我是alert", {
+				shadeClose: true,  //点击阴影可关闭
+				animationType: "zoom"  //zoom动画
+			});
+		};
+	</script>
+</html>

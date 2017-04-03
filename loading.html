@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>laoding加载层</title>
+		<link rel="stylesheet" type="text/css" href="css/dialog.css"/>
+		<script type="text/javascript" src="js/dialog.min.js"></script>
+		<style  type="text/css">
+			body{
+				font-family: "微软雅黑";
+			}
+			button{
+				border: none;
+				background-color: #E2E2E2;
+				padding: 6px 12px;
+				border: 1px solid #CCCCCC;
+				border-radius: 3px;
+				outline: none;
+				cursor: pointer;
+			}
+			.code{
+				font-size: 14px;
+				width: 500px;
+				padding: 10px;
+				margin: 10px 0;
+				color: #FFFFFF;
+				border-radius: 3px;
+				background-color: #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			<button id="button-loading">默认行为的loading</button>
+			<div class="code">
+				dialog.loading();
+			</div>
+			<button id="button-loading-type">指定类型的loading</button>
+			<div class="code">
+				dialog.loading({<br/>
+				&nbsp;&nbsp;type: 2<br/>
+				});
+			</div>
+			<button id="button-loading-hint">指定提示内容的loading</button>
+			<div class="code">
+				dialog.loading({<br/>
+				&nbsp;&nbsp;hint: "加载中..."<br/>
+				});
+			</div>
+			<button id="button-loading-close">3秒后关闭的loading</button>
+			<div class="code">
+				dialog.loading();<br/>
+				setTimeout(function(){<br/>
+				&nbsp;&nbsp;dialog.closeLoading();  //关闭所有已经显示的loading层<br/>
+				}, 3000);
+			</div>
+		</p>
+	</body>
+	<script type="text/javascript">
+		//可设置参数
+		//src: //设置loading图所在根目录。默认为img，表示使用的页面和img目录为同一级
+		//hint: "",  //提示内容
+		//type: 1,  //加载类型 1，2。默认1
+		//animationType: "zoom"  //动画：zoom，fade。默认zoom
+		document.getElementById("button-loading").onclick = function(){
+			dialog.loading();
+		};
+		document.getElementById("button-loading-type").onclick = function(){
+			dialog.loading({
+				type: 2
+			});
+		};
+		document.getElementById("button-loading-hint").onclick = function(){
+			dialog.loading({
+				hint: "加载中..."
+			});
+		};
+		document.getElementById("button-loading-close").onclick = function(){
+			dialog.loading();
+			setTimeout(function(){
+				dialog.closeLoading();  //关闭所有已经显示的loading层
+			}, 3000);
+		};
+	</script>
+</html>

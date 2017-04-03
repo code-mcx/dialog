@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>layer弹出层</title>
+		<link rel="stylesheet" type="text/css" href="css/dialog.css"/>
+		<script type="text/javascript" src="js/dialog.min.js"></script>
+		<style  type="text/css">
+			body{
+				font-family: "微软雅黑";
+			}
+			button{
+				border: none;
+				background-color: #E2E2E2;
+				padding: 6px 12px;
+				border: 1px solid #CCCCCC;
+				border-radius: 3px;
+				outline: none;
+				cursor: pointer;
+			}
+			.code{
+				font-size: 14px;
+				width: 500px;
+				padding: 10px;
+				margin: 10px 0;
+				color: #FFFFFF;
+				border-radius: 3px;
+				background-color: #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			<button id="button-layer">默认行为的layer</button>
+			<div class="code">
+				dialog.layer();
+			</div>
+			<button id="button-layer-other">不同风格的layer</button>
+			<div class="code">
+				dialog.layer({<br/>
+				&nbsp;&nbsp;title: "我是不用风格的层",<br/>
+				&nbsp;&nbsp;style: 2  //风格<br/>
+				});
+			</div>
+			<button id="button-layer-content">指定内容的layer</button>
+			<div class="code">
+				dialog.layer({<br/>
+				&nbsp;&nbsp;title: "我是加载了内容的层",<br/>
+				&nbsp;&nbsp;//设置标题样式，css属性名采用驼峰命名规则<br/>
+				&nbsp;&nbsp;titleStyle: {<br/>
+				&nbsp;&nbsp;	color: "#FFFFFF",<br/>
+				&nbsp;&nbsp;	background: "#009F95"<br/>
+				&nbsp;&nbsp;},<br/>
+				&nbsp;&nbsp;//html内容<br/>
+				&nbsp;&nbsp;content: "hi, 我是layer层&nbsp;&nbsp;&nbsp;&lt;button id=\"btn\"&gt;点我&lt;/button&gt;",<br/>
+				&nbsp;&nbsp;//layer层添加到document后回调<br/>
+				&nbsp;&nbsp;afterLoad: function(){<br/>
+				&nbsp;&nbsp;	document.getElementById("btn").onclick=function(){<br/>
+				&nbsp;&nbsp;		alert("you click me");<br/>
+				&nbsp;&nbsp;	};<br/>
+				&nbsp;&nbsp;}<br/>
+				});
+			</div>
+		</p>
+	</body>
+	<script type="text/javascript">
+		//可设置的参数
+		//title: "标题",  //标题。默认为"信息"
+		//width: 500,  //默认宽
+		//height: 400,  //默认高
+		//shadeClose: false,  //点击阴影是否可关闭。默认false
+		//animationType: "bounce",  //动画：bounce，fade，zoom
+		//设置标题样式，css属性名采用驼峰命名规则
+		//titleStyle: {},
+		//style: 1,  //风格。1,2可选。默认为1
+		//html内容
+		//content: "hi, 我是layer层&nbsp;&nbsp;&nbsp;<button id=\"btn\">点我</button>",
+		//layer层添加到document后回调
+		/*afterLoad: function(){
+			document.getElementById("btn").onclick=function(){
+				alert("you click me");
+			};
+		}*/
+		document.getElementById("button-layer").onclick = function(){
+			dialog.layer();
+		};
+		document.getElementById("button-layer-other").onclick = function(){
+			dialog.layer({
+				title: "我是不用风格的层",
+				style: 2  //风格
+			});
+		};
+		document.getElementById("button-layer-content").onclick = function(){
+			dialog.layer({
+				title: "我是加载了内容的层",
+				//设置标题样式，css属性名采用驼峰命名规则
+				titleStyle: {
+					color: "#FFFFFF",
+					background: "#009F95"
+				},
+				//html内容
+				content: "hi, 我是layer层&nbsp;&nbsp;&nbsp;<button id=\"btn\">点我</button>",
+				//layer层添加到document后回调
+				afterLoad: function(){
+					document.getElementById("btn").onclick=function(){
+						alert("you click me");
+					};
+				}
+			});
+		};
+	</script>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>confirm确认框</title>
+		<link rel="stylesheet" type="text/css" href="css/dialog.css"/>
+		<script type="text/javascript" src="js/dialog.min.js"></script>
+		<style  type="text/css">
+			body{
+				font-family: "微软雅黑";
+			}
+			button{
+				border: none;
+				background-color: #E2E2E2;
+				padding: 6px 12px;
+				border: 1px solid #CCCCCC;
+				border-radius: 3px;
+				outline: none;
+				cursor: pointer;
+			}
+			.code{
+				font-size: 14px;
+				width: 500px;
+				padding: 10px;
+				margin: 10px 0;
+				color: #FFFFFF;
+				border-radius: 3px;
+				background-color: #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			<button id="button-confirm">默认行为的confirm</button>
+			<div class="code">
+				dialog.confirm("hi, 我是confirm");
+			</div>
+			<button id="button-confirm-btn">指定按钮的confirm</button>
+			<div class="code">
+				var btn = ["我帅", "很帅", "非常帅"];<br/>
+				&nbsp;&nbsp;dialog.confirm("我帅吗？", {<br/>
+				&nbsp;&nbsp;showClose: true,  //显示关闭按钮<br/>
+				&nbsp;&nbsp;shadeClose: true,  //点击阴影可关闭<br/>
+				&nbsp;&nbsp;btn: btn,  //按钮<br/>
+				&nbsp;&nbsp;//按钮点击回调<br/>
+				&nbsp;&nbsp;btnClick: function(index){  //index：按钮索引，从0开始<br/>
+				&nbsp;&nbsp;	alert("你点击了" + btn[index]);<br/>
+				&nbsp;&nbsp;}<br/>
+				});
+			</div>
+			<button id="button-confirm-style">指定样式的confirm</button>
+			<div class="code">
+				dialog.confirm("hi, 我是confirm", {<br/>
+				&nbsp;&nbsp;title: "我是自定义样式的确认框哦",<br/>
+				&nbsp;&nbsp;showClose: false,  //不显示关闭按钮<br/>
+				&nbsp;&nbsp;shadeClose: true,  //点击阴影可关闭<br/>
+				&nbsp;&nbsp;//设置标题样式，css属性名采用驼峰命名规则<br/>
+				&nbsp;&nbsp;titleStyle: {<br/>
+				&nbsp;&nbsp;	color: "#FFFFFF",<br/>
+				&nbsp;&nbsp;	backgroundColor: "#4F4F4F"<br/>
+				&nbsp;&nbsp;},<br/>
+				&nbsp;&nbsp;//设置按钮样式，css属性名采用驼峰命名规则。每一个对象对应相应下标的按钮<br/>
+				&nbsp;&nbsp;buttonStyle: [{<br/>
+				&nbsp;&nbsp;		color: "#FFFFFF",<br/>
+				&nbsp;&nbsp;		border: "1px solid #616161",<br/>
+				&nbsp;&nbsp;		backgroundColor: "#4F4F4F"<br/>
+				&nbsp;&nbsp;	},{<br/>
+				&nbsp;&nbsp;		color: "#FFFFFF",<br/>
+				&nbsp;&nbsp;		border: "1px solid #616161",<br/>
+				&nbsp;&nbsp;		backgroundColor: "#4F4F4F"<br/>
+				&nbsp;&nbsp;	}<br/>
+				&nbsp;&nbsp;]<br/>
+				});
+			</div>
+			<button id="button-confirm-animation">指定动画的confirm</button>
+			<div class="code">
+				dialog.confirm("hi, 我是confirm",{<br/>
+				&nbsp;&nbsp;title: "我是你定义的动画哦",<br/>
+				&nbsp;&nbsp;showClose: true,  //显示关闭按钮<br/>
+				&nbsp;&nbsp;shadeClose: true,  //点击阴影可关闭<br/>
+				&nbsp;&nbsp;animationType: "zoom"  //使用zoom动画<br/>
+				});
+			</div>
+			<button id="button-confirm-size">指定宽高的confirm</button>
+			<div class="code">
+				dialog.confirm("hi, 我是confirm，爱我你就用用我，爱我你就点点我",{<br/>
+				&nbsp;&nbsp;title: "我是自定义身材的确认框哦",<br/>
+				&nbsp;&nbsp;width: 280,  //宽<br/>
+				&nbsp;&nbsp;height: 160,  //高<br/>
+				&nbsp;&nbsp;shadeClose: true  //点击阴影可关闭<br/>
+				});
+			</div>
+		</p>
+	</body>
+	<script type="text/javascript">
+		//可设置的参数
+		//width: 260,  //默认宽
+		//height: 146,  //默认高
+		//title："信息",  //标题。默认为"信息"
+		//btn: ["确定", "取消"],  //按钮。默认["确定"，"取消"]
+		//showClose: true,  //是否显示关闭按钮。默认true
+		//shadeClose: true,  //点击阴影是否可关闭。默认false
+		//animationType: "zoom",  //动画：bounce，fade，zoom
+		//设置标题样式，css属性名采用驼峰命名规则
+		/*titleStyle: {
+			color: "#FFFFFF",
+			backgroundColor: "#4F4F4F"
+		},
+		//设置按钮样式，css属性名采用驼峰命名规则。每一个对象对应相应下标的按钮
+		buttonStyle: [{},{
+			color: "#000000",
+			border: "1px solid #DEDEDE",
+			backgroundColor: "#EEEEEE",
+		}],
+		//按钮点击回调
+		btnClick: function(index){  //index：按钮索引，从0开始
+			alert("你点击了第" + (index + 1) + "个按钮");
+		}*/
+		document.getElementById("button-confirm").onclick = function(){
+			dialog.confirm("hi, 我是confirm");
+		};
+		document.getElementById("button-confirm-btn").onclick = function(){
+			var btn = ["我帅", "很帅", "非常帅"];
+			dialog.confirm("我帅吗？", {
+				showClose: true,  //显示关闭按钮
+				shadeClose: true,  //点击阴影可关闭
+				btn: btn,  //按钮
+				//按钮点击回调
+				btnClick: function(index){  //index：按钮索引，从0开始
+					alert("你点击了" + btn[index]);
+				}
+			});
+		};
+		document.getElementById("button-confirm-style").onclick = function(){
+			dialog.confirm("hi, 我是confirm", {
+				title: "我是自定义样式的确认框哦",
+				showClose: false,  //不显示关闭按钮
+				shadeClose: true,  //点击阴影可关闭
+				//设置标题样式，css属性名采用驼峰命名规则
+				titleStyle: {
+					color: "#FFFFFF",
+					backgroundColor: "#4F4F4F"
+				},
+				//设置按钮样式，css属性名采用驼峰命名规则。每一个对象对应相应下标的按钮
+				buttonStyle: [{
+						color: "#FFFFFF",
+						border: "1px solid #616161",
+						backgroundColor: "#4F4F4F"
+					},{
+						color: "#FFFFFF",
+						border: "1px solid #616161",
+						backgroundColor: "#4F4F4F"
+					}
+				]
+			});
+		};
+		document.getElementById("button-confirm-animation").onclick = function(){
+			dialog.confirm("hi, 我是confirm",{
+				title: "我是你定义的动画哦",
+				showClose: true,  //显示关闭按钮
+				shadeClose: true,  //点击阴影可关闭
+				animationType: "zoom"  //使用zoom动画
+			});
+		};
+		document.getElementById("button-confirm-size").onclick = function(){
+			dialog.confirm("hi, 我是confirm，爱我你就用用我，爱我你就点点我",{
+				title: "我是自定义身材的确认框哦",
+				width: 280,  //宽
+				height: 160,  //高
+				shadeClose: true  //点击阴影可关闭
+			});
+		};
+	</script>
+</html>
