@@ -42,6 +42,7 @@
 			<button id="button-layer">默认行为的layer</button>
 			<button id="button-layer-other">不同风格的layer</button>
 			<button id="button-layer-content">指定内容的layer</button>
+			<button id="button-layer-close">手动关闭的layer</button>
 		</p>
 		<h5>消息框<a href="message.html" target="_blank">(message)</a></h5>
 		<p>
@@ -194,6 +195,19 @@
 				}
 			});
 		};
+		document.getElementById("button-layer-close").onclick = function(){
+            dialog.layer({
+                title: "可手动关闭的层",
+                //html内容
+                content: "hi, 我是layer层&nbsp;&nbsp;&nbsp;<button id=\"btn\">点我关闭</button>",
+                //layer层添加到document后回调
+                afterLoad: function(){
+                    document.getElementById("btn").onclick=function(){
+                        dialog.closeLayer();
+                    };
+                }
+            });
+        };
 		
 		//msg
 		

@@ -62,6 +62,20 @@
 				&nbsp;&nbsp;}<br/>
 				});
 			</div>
+			<button id="button-layer-close">手动关闭的layer</button>
+			<div class="code">
+				dialog.layer({<br/>
+				&nbsp;&nbsp;title: "我是加载了内容的层",<br/>
+				&nbsp;&nbsp;//html内容<br/>
+				&nbsp;&nbsp;content: "hi, 我是layer层&nbsp;&nbsp;&nbsp;&lt;button id=\"btn\"&gt;点我关闭&lt;/button&gt;",<br/>
+				&nbsp;&nbsp;//layer层添加到document后回调<br/>
+				&nbsp;&nbsp;afterLoad: function(){<br/>
+				&nbsp;&nbsp;	document.getElementById("btn").onclick=function(){<br/>
+				&nbsp;&nbsp;		dialog.closeLayer();<br/>
+				&nbsp;&nbsp;	};<br/>
+				&nbsp;&nbsp;}<br/>
+				});
+			</div>
 		</p>
 	</body>
 	<script type="text/javascript">
@@ -109,5 +123,18 @@
 				}
 			});
 		};
+		document.getElementById("button-layer-close").onclick = function(){
+            dialog.layer({
+                title: "可手动关闭的层",
+                //html内容
+                content: "hi, 我是layer层&nbsp;&nbsp;&nbsp;<button id=\"btn\">点我关闭</button>",
+                //layer层添加到document后回调
+                afterLoad: function(){
+                    document.getElementById("btn").onclick=function(){
+                        dialog.closeLayer();
+                    };
+                }
+            });
+        };
 	</script>
 </html>
