@@ -6,16 +6,16 @@
 		e.className = newclass.join(" ");
 	};
 	
-	var isSupportAddEventListner = !!document.addEventListener;
+	var isSupportAddEventListener = !!document.addEventListener;
 	function on(dom, eventType, callback){
-		if(isSupportAddEventListner){
+		if(isSupportAddEventListener){
 			dom.addEventListener(eventType, callback);
 		}else{
 			dom.attachEvent("on" + eventType, callback);
 		}
 	}
 	function off(dom, eventType, fun){
-		if(isSupportAddEventListner){
+		if(isSupportAddEventListener){
 			dom.removeEventListener(eventType, fun);
 		}else{
 			dom.detachEvent("on" + eventType, fun);	
@@ -133,7 +133,7 @@
 			
 			if(options.layer){
 				dialog.layerElement.push(bgDiv);
-                dialog.layerElement.push(dom);
+				dialog.layerElement.push(dom);
 				options.afterLoad();
 			}
 		},
@@ -432,9 +432,9 @@
 			this.loadElement = [];
 		},
 		closeLayer: function(){
-            layer.close(this.layerElement);
-            this.layerElement = [];
-        }
+			layer.close(this.layerElement);
+			this.layerElement = [];
+		}
 	}
 	window.dialog = dialog;
 })(window);
