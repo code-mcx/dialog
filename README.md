@@ -1,4 +1,4 @@
-# mcx-ialog
+# mcx-dialog
 dialog for web page
 # Description
 This dialog is used js to write and it is not dependent on jquery.It support IE8 and other browser.<br/>
