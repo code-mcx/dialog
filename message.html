@@ -4,13 +4,16 @@
 		<meta charset="UTF-8">
 		<title>message消息框</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-		<link rel="stylesheet" type="text/css" href="css/dialog.css"/>
-		<script type="text/javascript" src="js/dialog.min.js"></script>
+		<link rel="stylesheet" href="highlight/default.min.css">
+		<script type="text/javascript" src="highlight/highlight.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="dist/css/mcx-dialog.css"/>
+		<script type="text/javascript" src="dist/js/mcx-dialog.min.js"></script>
 		<style  type="text/css">
-			body{
+			body {
 				font-family: "微软雅黑";
 			}
-			button{
+			button {
 				border: none;
 				background-color: #E2E2E2;
 				padding: 6px 12px;
@@ -19,7 +22,7 @@
 				outline: none;
 				cursor: pointer;
 			}
-			.code{
+			.code {
 				font-size: 14px;
 				width: 500px;
 				padding: 10px;
@@ -31,55 +34,62 @@
 		</style>
 	</head>
 	<body>
-		<p>
-			<button id="button-msg">默认行为的msg</button>
-			<div class="code">
-				dialog.msg("hi, 我是message");
-			</div>
-			<button id="button-msg-time">指定消失时间的msg</button>
-			<div class="code">
-				dialog.msg("hi, 我是message", {<br/>
-				&nbsp;&nbsp;time: 2  //2秒后消失<br/>
-				});
-			</div>
-			<button id="button-msg-style">指定样式的msg</button>
-			<div class="code">
-				dialog.msg("hi, 我是自定义样式message", {<br/>
-				&nbsp;&nbsp;style: {<br/>
-				&nbsp;&nbsp;color:"#000000",<br/>
-				&nbsp;&nbsp;backgroundColor:"#FAFAFA",<br/>
-				&nbsp;&nbsp;border:"1px solid #CCCCCC"<br/>
-				&nbsp;&nbsp;}<br/>
-				});
-			</div>
-			<button id="button-msg-animation">指定动画的msg</button>
-			<div class="code">
-				dialog.msg("hi, 我是message", {<br/>
-				&nbsp;&nbsp;animationType: "fade"  //动画<br/>
-				});
-			</div>
-		</p>
+	<p>
+		<button id="button-msg">默认行为的msg</button>
+<pre>
+	<code class="javascript">mcxDialog.msg("hi, 我是message");</code>
+</pre>
+		<button id="button-msg-time">指定消失时间的msg</button>
+<pre>
+<code class="javascript">
+mcxDialog.msg("hi, 我是message", {<br/>
+  time: 2  //2秒后消失<br/>
+});<br/>
+</code>
+</pre>
+		<button id="button-msg-style">指定样式的msg</button>
+<pre>
+<code class="javascript">
+mcxDialog.msg("hi, 我是自定义样式message", {<br/>
+  style: {<br/>
+  color:"#000000",<br/>
+  backgroundColor:"#FAFAFA",<br/>
+  border:"1px solid #CCCCCC"<br/>
+  }<br/>
+});<br/>
+</code>
+</pre>
+		<button id="button-msg-animation">指定动画的msg</button>
+<pre>
+<code class="javascript">
+mcxDialog.msg("hi, 我是message", {<br/>
+  animationType: "fade"  //动画<br/>
+});<br/>
+</code>
+</pre>
+	</p>
 	</body>
+	<script>hljs.initHighlightingOnLoad();</script>
 	<script type="text/javascript">
 		//可设置参数
 		//time: 3, //消失时间。默认3秒
 		//style: {},  //样式，采用驼峰命名规则
 		//animationType: "zoom"  //动画：zoom，fade。默认zoom
-		document.getElementById("button-msg").onclick = function(){
-			dialog.msg("hi, 我是message");
+		document.getElementById("button-msg").onclick = function() {
+			mcxDialog.msg("hi, 我是message");
 		};
-		document.getElementById("button-msg-time").onclick = function(){
-			dialog.msg("hi, 我是message", {
+		document.getElementById("button-msg-time").onclick = function() {
+			mcxDialog.msg("hi, 我是message", {
 				time: 2  //2秒后消失
 			});
 		};
-		document.getElementById("button-msg-style").onclick = function(){
-			dialog.msg("hi, 我是自定义样式message", {
+		document.getElementById("button-msg-style").onclick = function() {
+			mcxDialog.msg("hi, 我是自定义样式message", {
 				style: {color:"#000000", backgroundColor:"#FAFAFA", border:"1px solid #CCCCCC"}
 			});
 		};
-		document.getElementById("button-msg-animation").onclick = function(){
-			dialog.msg("hi, 我是message", {
+		document.getElementById("button-msg-animation").onclick = function() {
+			mcxDialog.msg("hi, 我是message", {
 				animationType: "fade"  //动画
 			});
 		};
