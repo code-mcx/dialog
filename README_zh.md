@@ -9,13 +9,13 @@
 
 # 说明
 
-这个对话框是用原生javascript实现的，它不依赖于jquery。在这个对话框中使用了css3动画，在较低版本的浏览器环境中使用它并且没有CSS预处理器时，一些动画可能不会生效。它可以与vue、react一起使用
+这个对话框是用原生javascript实现的，它不依赖于jquery。这个对话框中使用了css3动画，在较低版本的浏览器环境中使用它并且没有CSS预处理器时，一些动画可能不会生效。它可以与vue、react一起使用
 
 # 入门
 
 ## 浏览器
 
-首先引入CSS和js，它们位于Dist目录中。您不能在Dist目录下移动任何东西
+首先引入CSS和js，它们位于dist目录中。你不能在dist目录下移动任何东西
 
 ```html
 <!DOCTYPE html>
@@ -81,7 +81,7 @@ import McxDialog from "mcx-dialog"
 Vue.use(McxDialog)
 ```
 
-在单页应用程序中，在任何地方调用它 
+在单页应用程序中，在任何地方调用它
 
 ```javascript
 <template>
