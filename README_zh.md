@@ -17,7 +17,7 @@
 
 首先引入CSS和js，它们位于Dist目录中。您不能在Dist目录下移动任何东西
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -33,7 +33,7 @@
 
 然后，你可以得到一个名为“mcxdialogs”的对象
 
-```
+```javascript
 <script type="text/javascript">
   // Alert
   mcxDialog.alert("hi, 我是alert");
@@ -63,7 +63,7 @@ npm install mcx-dialog
 
 导入依赖
 
-```
+```javascript
 // CommonJS
 let McxDialog = require("mcx-dialog").default
 
@@ -75,7 +75,7 @@ import McxDialog from "mcx-dialog"
 
 mcx-dialog 在vue中提供了更好的操作
 
-```
+```javascript
 import McxDialog from "mcx-dialog"
 // Install as Vue's plugin
 Vue.use(McxDialog)
@@ -83,7 +83,7 @@ Vue.use(McxDialog)
 
 在单页应用程序中，在任何地方调用它 
 
-```
+```javascript
 <template>
   <div id="app">
     <button @click="alert">alert</button>
@@ -121,7 +121,7 @@ export default {
 
 在React中，你需要在使用时导入它
 
-```
+```javascript
 handleClick = (type) => {
   switch (type) {
     case "alert":

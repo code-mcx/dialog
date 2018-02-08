@@ -22,7 +22,7 @@ be use with vue, react
 
 First lead into css and js, they are in dist directory. You can't move any things under the dist directory
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -38,7 +38,7 @@ First lead into css and js, they are in dist directory. You can't move any thing
 
 Then you can get an object named `mcxDialog`
 
-```
+```javascript
 <script type="text/javascript">
   // Alert
   mcxDialog.alert("hi, 我是alert");
@@ -68,7 +68,7 @@ npm install mcx-dialog
 
 Import dependency
 
-```
+```javascript
 // CommonJS
 let McxDialog = require("mcx-dialog").default
 
@@ -80,7 +80,7 @@ import McxDialog from "mcx-dialog"
 
 mcx-dialog provided better operations in Vue
 
-```
+```javascript
 import McxDialog from "mcx-dialog"
 // Install as Vue's plugin
 Vue.use(McxDialog)
@@ -88,7 +88,7 @@ Vue.use(McxDialog)
 
 In single page application, call it in any where
 
-```
+```javascript
 <template>
   <div id="app">
     <button @click="alert">alert</button>
@@ -126,7 +126,7 @@ export default {
 
 In react, you mast import it when you need to use
 
-```
+```javascript
 handleClick = (type) => {
   switch (type) {
     case "alert":
