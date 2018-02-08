@@ -127,6 +127,10 @@ export default {
 In react, you mast import it when you need to use
 
 ```javascript
+import mcxDialog from "mcx-dialog"
+```
+
+```javascript
 handleClick = (type) => {
   switch (type) {
     case "alert":

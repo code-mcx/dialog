@@ -122,6 +122,10 @@ export default {
 在React中，你需要在使用时导入它
 
 ```javascript
+import mcxDialog from "mcx-dialog"
+```
+
+```javascript
 handleClick = (type) => {
   switch (type) {
     case "alert":
