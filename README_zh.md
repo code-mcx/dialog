@@ -31,7 +31,7 @@
 </html>
 ```
 
-然后，你可以得到一个名为“mcxdialogs”的对象
+然后，你可以得到一个名为`mcxDialog`的对象
 
 ```javascript
 <script type="text/javascript">
