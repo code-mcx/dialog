@@ -12,8 +12,8 @@ A dialog plugin for web page based on primary javascript
 
 # Description
 
-This dialog is implemented with primary javascript and it is not dependent on jquery.Css3 animation is used in this dialog box, 
-when you use it in lower version browser environment and without css preprocessor,some animation may be not take effect. It can
+This dialog is implemented with primary javascript and it is not dependent on jquery. Css3 animation is used in this dialog box, 
+when you use it in lower version browser environment and without css preprocessor, some animation may be not take effect. It can
 be use with vue, react
 
 # Getting started
