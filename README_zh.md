@@ -4,23 +4,18 @@
   <a href="https://github.com/code-mcx/mcx-dialog"><img src="https://img.shields.io/badge/language-javascript-green.svg" alt="mcx-dialog"></a>
   <a href="https://github.com/code-mcx/mcx-dialog"><img src="https://img.shields.io/badge/npm-v0.1.0-blue.svg" alt="mcx-dialog"></a>
 </p>
-<p>
-  <a href="https://github.com/code-mcx/mcx-dialog/blob/master/README_zh.md">中文文档</a>
-</p>
 
-A dialog plugin for web page based on primary javascript 
+一个基于原生javascript的网页对话框插件 
 
-# Description
+# 说明
 
-This dialog is implemented with primary javascript and it is not dependent on jquery.Css3 animation is used in this dialog box, 
-when you use it in lower version browser environment and without css preprocessor,some animation may be not take effect. It can
-be use with vue, react
+这个对话框是用主javascript实现的，它不依赖于jquery。在这个对话框中使用了css3动画，在你较低版本的浏览器环境中使用它并且没有CSS预处理器时，一些动画可能不会生效。它可以与vue、react一起使用
 
-# Getting started
+# 入门
 
-## Browser
+## 浏览器
 
-First lead into css and js, they are in dist directory. You can't move any things under the dist directory
+首先引入CSS和js，它们位于Dist目录中。您不能在Dist目录下移动任何东西
 
 ```
 <!DOCTYPE html>
@@ -36,7 +31,7 @@ First lead into css and js, they are in dist directory. You can't move any thing
 </html>
 ```
 
-Then you can get an object named `mcxDialog`
+然后，你可以得到一个名为“mcxdialogs”的对象
 
 ```
 <script type="text/javascript">
@@ -56,17 +51,17 @@ Then you can get an object named `mcxDialog`
 	mcxDialog.loading();
 </script>
 ```
-More use see the examples directory: [examples]()
+更多使用请参见示例目录：[examples]()
 
 ## Npm
 
-If you are useing npm, first install this package
+如果你正在使用npm，先安装此插件包
 
 ```
 npm install mcx-dialog
 ```
 
-Import dependency
+导入依赖
 
 ```
 // CommonJS
@@ -78,7 +73,7 @@ import McxDialog from "mcx-dialog"
 
 ### Vue
 
-mcx-dialog provided better operations in Vue
+mcx-dialog 在vue中提供了更好的操作
 
 ```
 import McxDialog from "mcx-dialog"
@@ -86,7 +81,7 @@ import McxDialog from "mcx-dialog"
 Vue.use(McxDialog)
 ```
 
-In single page application, call it in any where
+在单页应用程序中，在任何地方调用它 
 
 ```
 <template>
@@ -124,7 +119,7 @@ export default {
 ```
 ### React
 
-In react, you mast import it when you need to use
+在React中，你需要在使用时导入它
 
 ```
 handleClick = (type) => {

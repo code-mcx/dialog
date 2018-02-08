@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>confirm确认框</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<link rel="stylesheet" href="highlight/default.min.css">
+		<script type="text/javascript" src="highlight/highlight.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="../dist/css/mcx-dialog.css"/>
+		<script type="text/javascript" src="../dist/mcx-dialog.min.js"></script>
+		<style  type="text/css">
+			body {
+				font-family: "微软雅黑";
+			}
+			button {
+				border: none;
+				background-color: #E2E2E2;
+				padding: 6px 12px;
+				border: 1px solid #CCCCCC;
+				border-radius: 3px;
+				outline: none;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+	<p>
+		<button id="button-confirm">默认行为的confirm</button>
+<pre>
+	<code class="javascript">mcxDialog.confirm("hi, 我是confirm");</code>
+</pre>
+		<button id="button-confirm-btn">指定按钮的confirm</button>
+<pre>
+<code class="javascript">
+var btn = ["我帅", "很帅", "非常帅"];<br/>
+  mcxDialog.confirm("我帅吗？", {<br/>
+  showClose: true,  //显示关闭按钮<br/>
+  shadeClose: true,  //点击阴影可关闭<br/>
+  btn: btn,  //按钮<br/>
+  //按钮点击回调<br/>
+  btnClick: function(index){  //index：按钮索引，从0开始<br/>
+    alert("你点击了" + btn[index]);<br/>
+  }<br/>
+});<br/>
+</code>
+</pre>
+		<button id="button-confirm-style">指定样式的confirm</button>
+<pre>
+<code class="javascript">
+mcxDialog.confirm("hi, 我是confirm", {<br/>
+  title: "我是自定义样式的确认框哦",<br/>
+  showClose: false,  //不显示关闭按钮<br/>
+  shadeClose: true,  //点击阴影可关闭<br/>
+  //设置标题样式，css属性名采用驼峰命名规则<br/>
+  titleStyle: {<br/>
+    color: "#FFFFFF",<br/>
+    backgroundColor: "#4F4F4F"<br/>
+  },<br/>
+  //设置按钮样式，css属性名采用驼峰命名规则。每一个对象对应相应下标的按钮<br/>
+  buttonStyle: [{<br/>
+    color: "#FFFFFF",<br/>
+    border: "1px solid #616161",<br/>
+  	backgroundColor: "#4F4F4F"<br/>
+  },{<br/>
+      color: "#FFFFFF",<br/>
+      border: "1px solid #616161",<br/>
+      backgroundColor: "#4F4F4F"<br/>
+  }<br/>
+  ]<br/>
+});
+</code>
+</pre>
+		<button id="button-confirm-animation">指定动画的confirm</button>
+<pre>
+<code class="javascript">
+mcxDialog.confirm("hi, 我是confirm",{<br/>
+  title: "我是你定义的动画哦",<br/>
+  showClose: true,  //显示关闭按钮<br/>
+  shadeClose: true,  //点击阴影可关闭<br/>
+  animationType: "zoom"  //使用zoom动画<br/>
+});<br/>
+</code>
+</pre>
+		<button id="button-confirm-size">指定宽高的confirm</button>
+<pre>
+<code class="javascript">
+mcxDialog.confirm("hi, 我是confirm，爱我你就用用我，爱我你就点点我",{<br/>
+  title: "我是自定义身材的确认框哦",<br/>
+  width: 280,  //宽<br/>
+  height: 160,  //高<br/>
+  shadeClose: true  //点击阴影可关闭<br/>
+});<br/>
+</code>
+</pre>
+	</p>
+	</body>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<script type="text/javascript">
+		//可设置的参数
+		//width: 260,  //默认宽
+		//height: 146,  //默认高
+		//title："信息",  //标题。默认为"信息"
+		//btn: ["确定", "取消"],  //按钮。默认["确定"，"取消"]
+		//showClose: true,  //是否显示关闭按钮。默认true
+		//shadeClose: true,  //点击阴影是否可关闭。默认false
+		//animationType: "zoom",  //动画：bounce，fade，zoom
+		//设置标题样式，css属性名采用驼峰命名规则
+		/*titleStyle: {
+			color: "#FFFFFF",
+			backgroundColor: "#4F4F4F"
+		},
+		//设置按钮样式，css属性名采用驼峰命名规则。每一个对象对应相应下标的按钮
+		buttonStyle: [{},{
+			color: "#000000",
+			border: "1px solid #DEDEDE",
+			backgroundColor: "#EEEEEE",
+		}],
+		//按钮点击回调
+		btnClick: function(index){  //index：按钮索引，从0开始
+			alert("你点击了第" + (index + 1) + "个按钮");
+		}*/
+		document.getElementById("button-confirm").onclick = function() {
+			mcxDialog.confirm("hi, 我是confirm");
+		};
+		document.getElementById("button-confirm-btn").onclick = function() {
+			var btn = ["我帅", "很帅", "非常帅"];
+			mcxDialog.confirm("我帅吗？", {
+				showClose: true,  //显示关闭按钮
+				shadeClose: true,  //点击阴影可关闭
+				btn: btn,  //按钮
+				//按钮点击回调
+				btnClick: function(index) {  //index：按钮索引，从0开始
+					alert("你点击了" + btn[index]);
+				}
+			});
+		};
+		document.getElementById("button-confirm-style").onclick = function() {
+			mcxDialog.confirm("hi, 我是confirm", {
+				title: "我是自定义样式的确认框哦",
+				showClose: false,  //不显示关闭按钮
+				shadeClose: true,  //点击阴影可关闭
+				//设置标题样式，css属性名采用驼峰命名规则
+				titleStyle: {
+					color: "#FFFFFF",
+					backgroundColor: "#4F4F4F"
+				},
+				//设置按钮样式，css属性名采用驼峰命名规则。每一个对象对应相应下标的按钮
+				buttonStyle: [{
+						color: "#FFFFFF",
+						border: "1px solid #616161",
+						backgroundColor: "#4F4F4F"
+					},{
+						color: "#FFFFFF",
+						border: "1px solid #616161",
+						backgroundColor: "#4F4F4F"
+					}
+				]
+			});
+		};
+		document.getElementById("button-confirm-animation").onclick = function() {
+			mcxDialog.confirm("hi, 我是confirm",{
+				title: "我是你定义的动画哦",
+				showClose: true,  //显示关闭按钮
+				shadeClose: true,  //点击阴影可关闭
+				animationType: "zoom"  //使用zoom动画
+			});
+		};
+		document.getElementById("button-confirm-size").onclick = function() {
+			mcxDialog.confirm("hi, 我是confirm，爱我你就用用我，爱我你就点点我",{
+				title: "我是自定义身材的确认框哦",
+				width: 280,  //宽
+				height: 160,  //高
+				shadeClose: true  //点击阴影可关闭
+			});
+		};
+	</script>
+</html>
