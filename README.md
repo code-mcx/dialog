@@ -25,14 +25,14 @@ First lead into css and js, they are in dist directory. You can't move any thing
 ```
 <!DOCTYPE html>
 <html>
-	<head>
-		...
-		<link rel="stylesheet" type="text/css" href="dist/css/mcx-dialog.css"/>
-	</head>
-	<body>
-		...
-		<script type="text/javascript" src="dist/mcx-dialog.min.js"></script>
-	</body>
+  <head>
+    ...
+    <link rel="stylesheet" type="text/css" href="dist/css/mcx-dialog.css"/>
+  </head>
+  <body>
+    ...
+    <script type="text/javascript" src="dist/mcx-dialog.min.js"></script>
+  </body>
 </html>
 ```
 
@@ -40,23 +40,23 @@ Then you can get an object named `mcxDialog`
 
 ```
 <script type="text/javascript">
-	// Alert
-	mcxDialog.alert("hi, 我是alert");
+  // Alert
+  mcxDialog.alert("hi, 我是alert");
 
-	// Confirm
-	mcxDialog.confirm("hi, 我是confirm");
+  // Confirm
+  mcxDialog.confirm("hi, 我是confirm");
 
-	// Msg
-	mcxDialog.msg("hi, 我是message");
+  // Msg
+  mcxDialog.msg("hi, 我是message");
 
-	// Tips
-	mcxDialog.tips("hi, 我是tips", "dom's id");
+  // Tips
+  mcxDialog.tips("hi, 我是tips", "dom's id");
 
-	// Loading
-	mcxDialog.loading();
+  // Loading
+  mcxDialog.loading();
 </script>
 ```
-More use see the examples directory: [examples]()
+More use see the examples directory: [examples](https://github.com/code-mcx/mcx-dialog/tree/master/examples)
 
 ## Npm
 

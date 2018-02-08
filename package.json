@@ -1,6 +1,6 @@
 {
   "name": "mcx-dialog",
-  "author": "code-mcx",
+  "author": "mcx",
   "version": "0.1.0",
   "description": "A dialog plugin for web page based on primary javascript ",
   "devDependencies": {

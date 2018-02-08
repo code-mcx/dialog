@@ -20,14 +20,14 @@
 ```
 <!DOCTYPE html>
 <html>
-	<head>
-		...
-		<link rel="stylesheet" type="text/css" href="dist/css/mcx-dialog.css"/>
-	</head>
-	<body>
-		...
-		<script type="text/javascript" src="dist/mcx-dialog.min.js"></script>
-	</body>
+  <head>
+    ...
+    <link rel="stylesheet" type="text/css" href="dist/css/mcx-dialog.css"/>
+  </head>
+  <body>
+    ...
+    <script type="text/javascript" src="dist/mcx-dialog.min.js"></script>
+  </body>
 </html>
 ```
 
@@ -35,23 +35,23 @@
 
 ```
 <script type="text/javascript">
-	// Alert
-	mcxDialog.alert("hi, 我是alert");
+  // Alert
+  mcxDialog.alert("hi, 我是alert");
 
-	// Confirm
-	mcxDialog.confirm("hi, 我是confirm");
+  // Confirm
+  mcxDialog.confirm("hi, 我是confirm");
 
-	// Msg
-	mcxDialog.msg("hi, 我是message");
+  // Msg
+  mcxDialog.msg("hi, 我是message");
 
-	// Tips
-	mcxDialog.tips("hi, 我是tips", "dom's id");
+  // Tips
+  mcxDialog.tips("hi, 我是tips", "dom's id");
 
-	// Loading
-	mcxDialog.loading();
+  // Loading
+  mcxDialog.loading();
 </script>
 ```
-更多使用请参见示例目录：[examples]()
+更多使用请参见示例目录：[examples](https://github.com/code-mcx/mcx-dialog/tree/master/examples)
 
 ## Npm
 
