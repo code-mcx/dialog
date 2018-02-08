@@ -53,7 +53,7 @@ Then you can get an object named `mcxDialog`
   mcxDialog.tips("hi, 我是tips", "dom's id");
 
   // Loading
-  mcxDialog.loading();
+  mcxDialog.loading({src: "dist/img"});
 </script>
 ```
 More use see the examples directory: [examples](https://github.com/code-mcx/mcx-dialog/tree/master/examples)

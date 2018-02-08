@@ -48,7 +48,7 @@
   mcxDialog.tips("hi, 我是tips", "dom's id");
 
   // Loading
-  mcxDialog.loading();
+  mcxDialog.loading({src: "dist/img"});
 </script>
 ```
 更多使用请参见示例目录：[examples](https://github.com/code-mcx/mcx-dialog/tree/master/examples)
