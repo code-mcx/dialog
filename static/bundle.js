@@ -73,7 +73,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (typeof window !== "undefined") {
-	window.mcxDialog = __WEBPACK_IMPORTED_MODULE_0__index_js__["a" /* default */];
+  window.mcxDialog = __WEBPACK_IMPORTED_MODULE_0__index_js__["a" /* default */];
 }
 
 /***/ }),
@@ -91,413 +91,417 @@ if (typeof window !== "undefined") {
 
 
 function addClass(e, c) {
-	let newclass = e.className.split(" ");
-	if (e.className === "") newclass = [];
-	newclass.push(c);
-	e.className = newclass.join(" ");
-};
-
-function extend(source, target) {
-	for (let key in target) {
-		source[key] = target[key];
-	}
-	return source;
+  var newclass = e.className.split(" ");
+  if (e.className === "") newclass = [];
+  newclass.push(c);
+  e.className = newclass.join(" ");
 }
 
-const layer = {
-	init(dom, options, isShade) {
-		let body = document.getElementsByTagName("body")[0];
-		let bgDiv = document.createElement("div");
-		if (isShade) {
-			addClass(bgDiv, "mcx-dialog-bg");
-			body.appendChild(bgDiv);
-			// whether shade can be closed
-			if (options.shadeClose) {
-				Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(bgDiv, "click", () => {
-					handleClose();
-				});
-			}
-		}
+function extend(source, target) {
+  for (var key in target) {
+    source[key] = target[key];
+  }
+  return source;
+}
 
-		// whether show close button
-		if (options.showClose) {
-			let closeBtn = dom.getElementsByTagName("i")[0];
-			Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(closeBtn, "click", () => {
-				handleClose();
-			});
-		}
+var layer = {
+  init: function init(dom, options, isShade) {
+    var body = document.getElementsByTagName("body")[0];
+    var bgDiv = document.createElement("div");
+    if (isShade) {
+      addClass(bgDiv, "mcx-dialog-bg");
+      body.appendChild(bgDiv);
+      // whether shade can be closed
+      if (options.shadeClose) {
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(bgDiv, "click", function () {
+          handleClose();
+        });
+      }
+    }
 
-		let isAnimationEnd = false;
-		if (dom.style["animation"] !== undefined) {
-			isAnimationEnd = true;
-		}
-		function remove() {
-			layer.close([dom]);
-			Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["a" /* off */])(dom, "animationend", remove);
-		}
-		function handleClose() {
-			if (isAnimationEnd) {
-				addClass(dom, "animation-" + options.animationType + "-out");
-				Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(dom, "animationend", remove);
-				layer.close([bgDiv]);
+    // whether show close button
+    if (options.showClose) {
+      var closeBtn = dom.getElementsByTagName("i")[0];
+      Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(closeBtn, "click", function () {
+        handleClose();
+      });
+    }
 
-				if (options.layer) mcxDialog.layerElement = [];
-			} else {
-				layer.close([bgDiv, dom]);
+    var isAnimationEnd = false;
+    if (dom.style["animation"] !== undefined) {
+      isAnimationEnd = true;
+    }
+    function remove() {
+      layer.close([dom]);
+      Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["a" /* off */])(dom, "animationend", remove);
+    }
+    function handleClose() {
+      if (isAnimationEnd) {
+        addClass(dom, "animation-" + options.animationType + "-out");
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(dom, "animationend", remove);
+        layer.close([bgDiv]);
 
-				if (options.layer) mcxDialog.layerElement = [];
-			}
-		}
+        if (options.layer) mcxDialog.layerElement = [];
+      } else {
+        layer.close([bgDiv, dom]);
 
-		// set drag
-		let dialogHead = dom.getElementsByTagName("div")[0];
-		let downX, downY, left, top;
-		function move(e) {
-			let x = (e.pageX || e.clientX) - downX;
-			let y = (e.pageY || e.clientY) - downY;
-			dom.style.left = left + x + "px";
-			dom.style.top = top + y + "px";
-		}
-		Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(dialogHead, "mousedown", e => {
-			downX = e.pageX || e.clientX;
-			downY = e.pageY || e.clientY;
-			left = parseFloat(dom.style.left);
-			top = parseFloat(dom.style.top);
-			Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(document, "mousemove", move);
-		});
-		Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(dialogHead, "mouseup", () => {
-			Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["a" /* off */])(document, "mousemove", move);
-		});
+        if (options.layer) mcxDialog.layerElement = [];
+      }
+    }
 
-		// set button event
-		if (options.buttons.length > 0) {
-			for (let i = 0; i < options.buttons.length; i++) {
-				let btn = options.buttons[i];
-				btn.setAttribute("index", i);
-				Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(btn, "click", e => {
-					handleClose();
-					let _this = e.target || e.srcElement;
-					if (options.btnClick) options.btnClick(parseInt(_this.getAttribute("index")));
-				});
-			}
-		}
+    // set drag
+    var dialogHead = dom.getElementsByTagName("div")[0];
+    var downX = void 0,
+        downY = void 0,
+        left = void 0,
+        top = void 0;
+    function move(e) {
+      var x = (e.pageX || e.clientX) - downX;
+      var y = (e.pageY || e.clientY) - downY;
+      dom.style.left = left + x + "px";
+      dom.style.top = top + y + "px";
+    }
+    Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(dialogHead, "mousedown", function (e) {
+      downX = e.pageX || e.clientX;
+      downY = e.pageY || e.clientY;
+      left = parseFloat(dom.style.left);
+      top = parseFloat(dom.style.top);
+      Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(document, "mousemove", move);
+    });
+    Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(dialogHead, "mouseup", function () {
+      Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["a" /* off */])(document, "mousemove", move);
+    });
 
-		body.appendChild(dom);
+    // set button event
+    if (options.buttons.length > 0) {
+      for (var i = 0; i < options.buttons.length; i++) {
+        var btn = options.buttons[i];
+        btn.setAttribute("index", i);
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(btn, "click", function (e) {
+          handleClose();
+          var _this = e.target || e.srcElement;
+          if (options.btnClick) options.btnClick(parseInt(_this.getAttribute("index")));
+        });
+      }
+    }
 
-		// set dialog position
-		dom.style.top = (document.documentElement.clientHeight - dom.offsetHeight) / 2 + "px";
-		dom.style.left = (document.documentElement.clientWidth - dom.offsetWidth) / 2 + "px";
+    body.appendChild(dom);
 
-		if (options.layer) {
-			mcxDialog.layerElement.push(bgDiv);
-			mcxDialog.layerElement.push(dom);
-			options.afterLoad();
-		}
-	},
-	initHint(dom, options) {
-		let body = document.getElementsByTagName("body")[0];
-		body.appendChild(dom);
+    // set dialog position
+    dom.style.top = (document.documentElement.clientHeight - dom.offsetHeight) / 2 + "px";
+    dom.style.left = (document.documentElement.clientWidth - dom.offsetWidth) / 2 + "px";
 
-		if (options.target === undefined) {
-			dom.style.top = (document.documentElement.clientHeight - dom.offsetHeight) / 2 + "px";
-			dom.style.left = (document.documentElement.clientWidth - dom.offsetWidth) / 2 + "px";
-		} else {
-			// set tips position
-			let targetElem = document.getElementById(options.target);
-			let offsetTop = Object(__WEBPACK_IMPORTED_MODULE_1__utils_dom_js__["b" /* getOffsetTop */])(targetElem);
-			let offsetLeft = Object(__WEBPACK_IMPORTED_MODULE_1__utils_dom_js__["a" /* getOffsetLeft */])(targetElem);
-			if (options.direction === "right") {
-				offsetLeft = offsetLeft + targetElem.offsetWidth;
-				dom.style.top = offsetTop + "px";
-				dom.style.left = offsetLeft + 10 + "px";
-			} else if (options.direction === "left") {
-				offsetLeft = offsetLeft - dom.offsetWidth;
-				dom.style.top = offsetTop + "px";
-				dom.style.left = offsetLeft - 10 + "px";
-			} else if (options.direction === "top") {
-				offsetTop = offsetTop - dom.offsetHeight;
-				dom.style.top = offsetTop - 10 + "px";
-				dom.style.left = offsetLeft + "px";
-			} else if (options.direction === "bottom") {
-				offsetTop = offsetTop + targetElem.offsetHeight;
-				dom.style.top = offsetTop + 10 + "px";
-				dom.style.left = offsetLeft + "px";
-			}
-		}
+    if (options.layer) {
+      mcxDialog.layerElement.push(bgDiv);
+      mcxDialog.layerElement.push(dom);
+      options.afterLoad();
+    }
+  },
+  initHint: function initHint(dom, options) {
+    var body = document.getElementsByTagName("body")[0];
+    body.appendChild(dom);
 
-		let isAnimationEnd = false;
-		if (dom.style["animation"] !== undefined) {
-			isAnimationEnd = true;
-		}
-		function remove() {
-			layer.close([dom]);
-			Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["a" /* off */])(dom, "animationend", remove);
-		}
-		function handleClose() {
-			if (isAnimationEnd) {
-				addClass(dom, "animation-" + options.animationType + "-out");
-				Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(dom, "animationend", remove);
-			} else {
-				layer.close([dom]);
-			}
-		}
-		setTimeout(function () {
-			handleClose();
-		}, options.time * 1000);
-	},
-	close(doms) {
-		let body = document.getElementsByTagName("body")[0];
-		for (let i = 0; i < doms.length; i++) {
-			body.removeChild(doms[i]);
-		}
-	}
+    if (options.target === undefined) {
+      dom.style.top = (document.documentElement.clientHeight - dom.offsetHeight) / 2 + "px";
+      dom.style.left = (document.documentElement.clientWidth - dom.offsetWidth) / 2 + "px";
+    } else {
+      // set tips position
+      var targetElem = document.getElementById(options.target);
+      var offsetTop = Object(__WEBPACK_IMPORTED_MODULE_1__utils_dom_js__["b" /* getOffsetTop */])(targetElem);
+      var offsetLeft = Object(__WEBPACK_IMPORTED_MODULE_1__utils_dom_js__["a" /* getOffsetLeft */])(targetElem);
+      if (options.direction === "right") {
+        offsetLeft = offsetLeft + targetElem.offsetWidth;
+        dom.style.top = offsetTop + "px";
+        dom.style.left = offsetLeft + 10 + "px";
+      } else if (options.direction === "left") {
+        offsetLeft = offsetLeft - dom.offsetWidth;
+        dom.style.top = offsetTop + "px";
+        dom.style.left = offsetLeft - 10 + "px";
+      } else if (options.direction === "top") {
+        offsetTop = offsetTop - dom.offsetHeight;
+        dom.style.top = offsetTop - 10 + "px";
+        dom.style.left = offsetLeft + "px";
+      } else if (options.direction === "bottom") {
+        offsetTop = offsetTop + targetElem.offsetHeight;
+        dom.style.top = offsetTop + 10 + "px";
+        dom.style.left = offsetLeft + "px";
+      }
+    }
 
+    var isAnimationEnd = false;
+    if (dom.style["animation"] !== undefined) {
+      isAnimationEnd = true;
+    }
+    function remove() {
+      layer.close([dom]);
+      Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["a" /* off */])(dom, "animationend", remove);
+    }
+    function handleClose() {
+      if (isAnimationEnd) {
+        addClass(dom, "animation-" + options.animationType + "-out");
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils_event_js__["b" /* on */])(dom, "animationend", remove);
+      } else {
+        layer.close([dom]);
+      }
+    }
+    setTimeout(function () {
+      handleClose();
+    }, options.time * 1000);
+  },
+  close: function close(doms) {
+    var body = document.getElementsByTagName("body")[0];
+    for (var i = 0; i < doms.length; i++) {
+      body.removeChild(doms[i]);
+    }
+  }
 };
-const mcxDialog = {
-	loadElement: [],
-	layerElement: [],
-	alert(content, options) {
-		let opts = {
-			showClose: true,
-			shadeClose: false,
-			animationType: "bounce",
-			titleStyle: {},
-			buttonStyle: {}
-		};
-		opts = extend(opts, options);
-		opts.btn = ["确定"];
-		opts.btnClick = undefined;
-		if (opts.buttonStyle) {
-			opts.buttonStyle = [opts.buttonStyle];
-		}
+var mcxDialog = {
+  loadElement: [],
+  layerElement: [],
+  alert: function alert(content, options) {
+    var opts = {
+      showClose: true,
+      shadeClose: false,
+      animationType: "bounce",
+      titleStyle: {},
+      buttonStyle: {}
+    };
+    opts = extend(opts, options);
+    opts.btn = ["确定"];
+    opts.btnClick = undefined;
+    if (opts.buttonStyle) {
+      opts.buttonStyle = [opts.buttonStyle];
+    }
 
-		this.open(content, opts);
-	},
-	confirm(content, options) {
-		let secondBtn = {
-			color: "#000000",
-			border: "1px solid #DEDEDE",
-			backgroundColor: "#F1F1F1"
-		};
-		let opts = {
-			btn: ["确定", "取消"],
-			showClose: true,
-			shadeClose: false,
-			animationType: "bounce",
-			titleStyle: {},
-			buttonStyle: [{}, secondBtn]
-		};
-		opts = extend(opts, options);
-		if (opts.buttonStyle.length === 1) {
-			opts.buttonStyle = [options.buttonStyle[0], secondBtn];
-		}
+    this.open(content, opts);
+  },
+  confirm: function confirm(content, options) {
+    var secondBtn = {
+      color: "#000000",
+      border: "1px solid #DEDEDE",
+      backgroundColor: "#F1F1F1"
+    };
+    var opts = {
+      btn: ["确定", "取消"],
+      showClose: true,
+      shadeClose: false,
+      animationType: "bounce",
+      titleStyle: {},
+      buttonStyle: [{}, secondBtn]
+    };
+    opts = extend(opts, options);
+    if (opts.buttonStyle.length === 1) {
+      opts.buttonStyle = [options.buttonStyle[0], secondBtn];
+    }
 
-		this.open(content, opts);
-	},
-	layer(options) {
-		let opts = {
-			width: 500,
-			height: 400,
-			showClose: true,
-			shadeClose: false,
-			animationType: "bounce",
-			titleStyle: {},
-			style: 1,
-			content: "",
-			afterLoad: function () {}
-		};
-		opts = extend(opts, options);
-		opts.btn = [];
-		opts.showClose = true;
-		opts.layer = true;
+    this.open(content, opts);
+  },
+  layer: function layer(options) {
+    var opts = {
+      width: 500,
+      height: 400,
+      showClose: true,
+      shadeClose: false,
+      animationType: "bounce",
+      titleStyle: {},
+      style: 1,
+      content: "",
+      afterLoad: function afterLoad() {}
+    };
+    opts = extend(opts, options);
+    opts.btn = [];
+    opts.showClose = true;
+    opts.layer = true;
 
-		this.open(opts.content, opts);
-	},
-	open(content, options) {
-		let dialog = document.createElement("div");
-		let dialogHead = document.createElement("div");
-		let dialogContent = document.createElement("div");
-		let dialogTitle = document.createElement("div");
+    this.open(opts.content, opts);
+  },
+  open: function open(content, options) {
+    var dialog = document.createElement("div");
+    var dialogHead = document.createElement("div");
+    var dialogContent = document.createElement("div");
+    var dialogTitle = document.createElement("div");
 
-		dialogTitle.innerHTML = options.title || "信息";
-		dialogContent.innerHTML = content;
+    dialogTitle.innerHTML = options.title || "信息";
+    dialogContent.innerHTML = content;
 
-		addClass(dialog, "mcx-dialog");
-		addClass(dialog, "animation-" + options.animationType + "-in");
-		addClass(dialogHead, "dialog-head");
-		addClass(dialogContent, "dialog-content");
-		addClass(dialogTitle, "dialog-title");
+    addClass(dialog, "mcx-dialog");
+    addClass(dialog, "animation-" + options.animationType + "-in");
+    addClass(dialogHead, "dialog-head");
+    addClass(dialogContent, "dialog-content");
+    addClass(dialogTitle, "dialog-title");
 
-		dialogHead.appendChild(dialogTitle);
-		dialog.appendChild(dialogHead);
-		dialog.appendChild(dialogContent);
+    dialogHead.appendChild(dialogTitle);
+    dialog.appendChild(dialogHead);
+    dialog.appendChild(dialogContent);
 
-		if (options.width) {
-			dialog.style.width = options.width + "px";
-		}
-		if (options.height) {
-			if (!options.layer) {
-				dialogContent.style.height = options.height - 41 - 2 * 18 - 50 + "px";
-			} else {
-				dialogContent.style.height = options.height - 41 + "px";
-				addClass(dialogContent, "dialog-layer-content");
-			}
-		}
+    if (options.width) {
+      dialog.style.width = options.width + "px";
+    }
+    if (options.height) {
+      if (!options.layer) {
+        dialogContent.style.height = options.height - 41 - 2 * 18 - 50 + "px";
+      } else {
+        dialogContent.style.height = options.height - 41 + "px";
+        addClass(dialogContent, "dialog-layer-content");
+      }
+    }
 
-		if (options.titleStyle) {
-			for (let k in options.titleStyle) dialogHead.style[k] = options.titleStyle[k];
-		}
+    if (options.titleStyle) {
+      for (var k in options.titleStyle) {
+        dialogHead.style[k] = options.titleStyle[k];
+      }
+    }
 
-		if (options.showClose) {
-			let dialogIco = document.createElement("i");
-			addClass(dialogIco, "dialog-ico");
-			dialogHead.appendChild(dialogIco);
-		}
+    if (options.showClose) {
+      var dialogIco = document.createElement("i");
+      addClass(dialogIco, "dialog-ico");
+      dialogHead.appendChild(dialogIco);
+    }
 
-		let dialogFoot = document.createElement("div");
-		if (!options.layer) {
-			addClass(dialogFoot, "dialog-foot");
-			dialog.appendChild(dialogFoot);
-		} else {
-			if (options.style === 1) {
-				addClass(dialog, "dialog-layer");
-				dialogHead.style.borderRadius = "0";
-			}
-			dialogContent.style.overflow = "auto";
-		}
+    var dialogFoot = document.createElement("div");
+    if (!options.layer) {
+      addClass(dialogFoot, "dialog-foot");
+      dialog.appendChild(dialogFoot);
+    } else {
+      if (options.style === 1) {
+        addClass(dialog, "dialog-layer");
+        dialogHead.style.borderRadius = "0";
+      }
+      dialogContent.style.overflow = "auto";
+    }
 
-		options.buttons = [];
-		for (let i = 0; i < options.btn.length; i++) {
-			let btn = document.createElement("a");
-			btn.href = "javascript:void(0);";
-			btn.innerHTML = options.btn[i];
-			addClass(btn, "dialog-foot-btn");
+    options.buttons = [];
+    for (var i = 0; i < options.btn.length; i++) {
+      var btn = document.createElement("a");
+      btn.href = "javascript:void(0);";
+      btn.innerHTML = options.btn[i];
+      addClass(btn, "dialog-foot-btn");
 
-			// handle button style
-			if (options.buttonStyle && options.buttonStyle.length > 0) {
-				let btnStyle = options.buttonStyle[i];
-				for (let k in btnStyle) {
-					btn.style[k] = btnStyle[k];
-				}
-			}
+      // handle button style
+      if (options.buttonStyle && options.buttonStyle.length > 0) {
+        var btnStyle = options.buttonStyle[i];
+        for (var _k in btnStyle) {
+          btn.style[_k] = btnStyle[_k];
+        }
+      }
 
-			dialogFoot.appendChild(btn);
-			options.buttons.push(btn);
-		}
+      dialogFoot.appendChild(btn);
+      options.buttons.push(btn);
+    }
 
-		layer.init(dialog, options, true);
-	},
-	msg(msg, options) {
-		let opts = {
-			time: 3,
-			style: {},
-			animationType: "zoom"
-		};
-		opts = extend(opts, options);
+    layer.init(dialog, options, true);
+  },
+  msg: function msg(_msg, options) {
+    var opts = {
+      time: 3,
+      style: {},
+      animationType: "zoom"
+    };
+    opts = extend(opts, options);
 
-		let msgDiv = document.createElement("div");
-		addClass(msgDiv, "mcx-dialog-msg");
-		addClass(msgDiv, "animation-" + opts.animationType + "-in");
-		msgDiv.innerHTML = msg;
+    var msgDiv = document.createElement("div");
+    addClass(msgDiv, "mcx-dialog-msg");
+    addClass(msgDiv, "animation-" + opts.animationType + "-in");
+    msgDiv.innerHTML = _msg;
 
-		for (let k in opts.style) {
-			msgDiv.style[k] = opts.style[k];
-		}
+    for (var k in opts.style) {
+      msgDiv.style[k] = opts.style[k];
+    }
 
-		layer.initHint(msgDiv, opts);
-	},
-	tips(content, target, options) {
-		let opts = {
-			time: 3,
-			direction: "right",
-			animationType: "zoom",
-			style: {}
-		};
-		opts = extend(opts, options);
-		opts.target = target || "";
+    layer.initHint(msgDiv, opts);
+  },
+  tips: function tips(content, target, options) {
+    var opts = {
+      time: 3,
+      direction: "right",
+      animationType: "zoom",
+      style: {}
+    };
+    opts = extend(opts, options);
+    opts.target = target || "";
 
-		let dir = { left: "right", right: "left", top: "bottom", bottom: "top" };
+    var dir = { left: "right", right: "left", top: "bottom", bottom: "top" };
 
-		let tipsDiv = document.createElement("div");
-		let tipsWrapper = document.createElement("div");
-		let tipsArrow = document.createElement("div");
-		let tipsContent = document.createElement("div");
+    var tipsDiv = document.createElement("div");
+    var tipsWrapper = document.createElement("div");
+    var tipsArrow = document.createElement("div");
+    var tipsContent = document.createElement("div");
 
-		addClass(tipsDiv, "mcx-dialog-tips");
-		addClass(tipsDiv, "animation-" + opts.animationType + "-in");
-		addClass(tipsWrapper, "tips-wrapper");
-		addClass(tipsArrow, "tips-arrow-" + dir[opts.direction]);
+    addClass(tipsDiv, "mcx-dialog-tips");
+    addClass(tipsDiv, "animation-" + opts.animationType + "-in");
+    addClass(tipsWrapper, "tips-wrapper");
+    addClass(tipsArrow, "tips-arrow-" + dir[opts.direction]);
 
-		tipsContent.innerHTML = content;
-		tipsDiv.appendChild(tipsWrapper);
-		tipsWrapper.appendChild(tipsArrow);
-		tipsWrapper.appendChild(tipsContent);
+    tipsContent.innerHTML = content;
+    tipsDiv.appendChild(tipsWrapper);
+    tipsWrapper.appendChild(tipsArrow);
+    tipsWrapper.appendChild(tipsContent);
 
-		for (let k in opts.style) {
-			tipsDiv.style[k] = opts.style[k];
-			// set arrow border color
-			if (k === "backgroundColor") {
-				if (opts.direction === "left" || opts.direction === "right") {
-					tipsArrow.style.borderBottomColor = opts.style[k];
-				} else {
-					tipsArrow.style.borderRightColor = opts.style[k];
-				}
-			}
-		}
+    for (var k in opts.style) {
+      tipsDiv.style[k] = opts.style[k];
+      // set arrow border color
+      if (k === "backgroundColor") {
+        if (opts.direction === "left" || opts.direction === "right") {
+          tipsArrow.style.borderBottomColor = opts.style[k];
+        } else {
+          tipsArrow.style.borderRightColor = opts.style[k];
+        }
+      }
+    }
 
-		layer.initHint(tipsDiv, opts);
-	},
-	loading(options) {
-		let opts = {
-			src: "img",
-			hint: "",
-			type: 1,
-			animationType: "zoom"
-		};
-		opts = extend(opts, options);
+    layer.initHint(tipsDiv, opts);
+  },
+  loading: function loading(options) {
+    var opts = {
+      src: "img",
+      hint: "",
+      type: 1,
+      animationType: "zoom"
+    };
+    opts = extend(opts, options);
 
-		let bgDiv = document.createElement("div");
-		let loadDiv = document.createElement("div");
-		let loadImg = document.createElement("img");
-		let loadHint = document.createElement("div");
+    var bgDiv = document.createElement("div");
+    var loadDiv = document.createElement("div");
+    var loadImg = document.createElement("img");
+    var loadHint = document.createElement("div");
 
-		addClass(bgDiv, "mcx-dialog-loading-bg");
-		addClass(loadDiv, "mcx-dialog-loading");
-		addClass(loadDiv, "animation-" + opts.animationType + "-in");
+    addClass(bgDiv, "mcx-dialog-loading-bg");
+    addClass(loadDiv, "mcx-dialog-loading");
+    addClass(loadDiv, "animation-" + opts.animationType + "-in");
 
-		if (opts.hint) {
-			addClass(loadDiv, "mcx-dialog-loading-hint");
-			loadHint.innerHTML = opts.hint;
-		}
+    if (opts.hint) {
+      addClass(loadDiv, "mcx-dialog-loading-hint");
+      loadHint.innerHTML = opts.hint;
+    }
 
-		loadImg.src = __webpack_require__(11)("./loading-" + opts.type + ".gif");
+    loadImg.src = __webpack_require__(11)("./loading-" + opts.type + ".gif");
 
-		loadDiv.appendChild(loadImg);
-		loadDiv.appendChild(loadHint);
+    loadDiv.appendChild(loadImg);
+    loadDiv.appendChild(loadHint);
 
-		let body = document.getElementsByTagName("body")[0];
-		body.appendChild(bgDiv);
-		body.appendChild(loadDiv);
+    var body = document.getElementsByTagName("body")[0];
+    body.appendChild(bgDiv);
+    body.appendChild(loadDiv);
 
-		loadDiv.style.top = (document.documentElement.clientHeight - loadDiv.offsetHeight) / 2 + "px";
-		loadDiv.style.left = (document.documentElement.clientWidth - loadDiv.offsetWidth) / 2 + "px";
+    loadDiv.style.top = (document.documentElement.clientHeight - loadDiv.offsetHeight) / 2 + "px";
+    loadDiv.style.left = (document.documentElement.clientWidth - loadDiv.offsetWidth) / 2 + "px";
 
-		this.loadElement.push(bgDiv);
-		this.loadElement.push(loadDiv);
-	},
-	closeLoading() {
-		layer.close(this.loadElement);
-		this.loadElement = [];
-	},
-	closeLayer() {
-		layer.close(this.layerElement);
-		this.layerElement = [];
-	}
+    this.loadElement.push(bgDiv);
+    this.loadElement.push(loadDiv);
+  },
+  closeLoading: function closeLoading() {
+    layer.close(this.loadElement);
+    this.loadElement = [];
+  },
+  closeLayer: function closeLayer() {
+    layer.close(this.layerElement);
+    this.layerElement = [];
+  }
 };
 
 // providing better operations in Vue
-mcxDialog.install = (Vue, options) => {
-	Vue.prototype.$mcxDialog = mcxDialog;
+mcxDialog.install = function (Vue, options) {
+  Vue.prototype.$mcxDialog = mcxDialog;
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (mcxDialog);
@@ -509,22 +513,22 @@ mcxDialog.install = (Vue, options) => {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return on; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return off; });
-let isSupportAddEventListener = !!document.addEventListener;
+var isSupportAddEventListener = !!document.addEventListener;
 
 function on(dom, eventType, callback) {
-	if (isSupportAddEventListener) {
-		dom.addEventListener(eventType, callback);
-	} else {
-		dom.attachEvent("on" + eventType, callback);
-	}
+  if (isSupportAddEventListener) {
+    dom.addEventListener(eventType, callback);
+  } else {
+    dom.attachEvent("on" + eventType, callback);
+  }
 }
 
 function off(dom, eventType, fun) {
-	if (isSupportAddEventListener) {
-		dom.removeEventListener(eventType, fun);
-	} else {
-		dom.detachEvent("on" + eventType, fun);
-	}
+  if (isSupportAddEventListener) {
+    dom.removeEventListener(eventType, fun);
+  } else {
+    dom.detachEvent("on" + eventType, fun);
+  }
 }
 
 
@@ -537,15 +541,16 @@ function off(dom, eventType, fun) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getOffsetLeft; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getOffsetTop; });
 function getOffsetTop(dom) {
-  let top = dom.offsetTop;
+  var top = dom.offsetTop;
   while (dom.offsetParent !== null) {
     top += dom.offsetParent.offsetTop;
     dom = dom.offsetParent;
   }
   return top;
 }
+
 function getOffsetLeft(dom) {
-  let left = dom.offsetLeft;
+  var left = dom.offsetLeft;
   while (dom.offsetParent !== null) {
     left += dom.offsetParent.offsetLeft;
     dom = dom.offsetParent;
