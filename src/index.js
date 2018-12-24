@@ -384,6 +384,7 @@ const mcxDialog = {
       loadHint.innerHTML = opts.hint;
     }
 
+    // loadImg.src = opts.src + "/loading-" + opts.type + ".gif";
     loadImg.src = require("./img/loading-" + opts.type + ".gif");
 
     loadDiv.appendChild(loadImg);
