@@ -8,7 +8,7 @@ function addClass(e, c) {
 	if (e.className === "") newclass = [];
 	newclass.push(c);
 	e.className = newclass.join(" ");
-};
+}
 
 function extend(source, target) {
 	for(let key in target) {

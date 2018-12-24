@@ -3,7 +3,7 @@
  * Copyright (C) 2018 mcx
  * https://github.com/code-mcx/mcx-dialog
  */
-import "./css/mcx-dialog.css";
+import './css/mcx-dialog.css';
 
 var isSupportAddEventListener = !!document.addEventListener;
 
@@ -46,7 +46,7 @@ function addClass(e, c) {
 	if (e.className === "") newclass = [];
 	newclass.push(c);
 	e.className = newclass.join(" ");
-};
+}
 
 function extend(source, target) {
 	for (var key in target) {
