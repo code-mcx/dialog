@@ -8,19 +8,19 @@
   <a href="https://github.com/code-mcx/mcx-dialog/blob/master/README_zh.md">中文文档</a>
 </p>
 
-A dialog plugin for web page based on primary javascript 
+A dialog plugin for web page based on primary javascript.
 
 # Description
 
 This dialog is implemented with primary javascript and it is not dependent on jquery. Css3 animation is used in this dialog box, 
 when you use it in lower version browser environment and without css preprocessor, some animation may be not take effect. It can
-be use with vue, react
+be use with vue, react.
 
 # Getting started
 
 ## Browser
 
-First lead into css and js, they are in dist directory. You can't move any things under the dist directory
+First lead into css and js, they are in dist directory. You can't move any things under the dist directory.
 
 ```html
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ First lead into css and js, they are in dist directory. You can't move any thing
 </html>
 ```
 
-Then you can get an object named `mcxDialog`
+Then you can get an object named `mcxDialog`.
 
 ```javascript
 <script type="text/javascript">
@@ -56,17 +56,17 @@ Then you can get an object named `mcxDialog`
   mcxDialog.loading({src: "dist/img"});
 </script>
 ```
-More use see the examples directory: [examples](https://github.com/code-mcx/mcx-dialog/tree/master/examples)
+More use see the examples directory: [examples](https://github.com/code-mcx/mcx-dialog/tree/master/examples).
 
 ## Npm
 
-If you are useing npm, first install this package
+If you are useing npm, first install this package.
 
 ```
 npm install mcx-dialog
 ```
 
-Import dependency
+Import dependency.
 
 ```javascript
 // CommonJS
@@ -78,7 +78,7 @@ import McxDialog from "mcx-dialog"
 
 ### Vue
 
-mcx-dialog provided better operations in Vue
+mcx-dialog provided better operations in Vue.
 
 ```javascript
 import McxDialog from "mcx-dialog"
@@ -86,7 +86,7 @@ import McxDialog from "mcx-dialog"
 Vue.use(McxDialog)
 ```
 
-In single page application, call it in any where
+In single page application, call it in any where.
 
 ```javascript
 <template>
@@ -124,7 +124,7 @@ export default {
 ```
 ### React
 
-In react, you mast import it when you need to use
+In react, you mast import it when you need to use.
 
 ```javascript
 import mcxDialog from "mcx-dialog"

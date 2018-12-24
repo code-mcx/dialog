@@ -5,7 +5,7 @@
   <a href="https://github.com/code-mcx/mcx-dialog"><img src="https://img.shields.io/badge/npm-v0.1.2-blue.svg" alt="mcx-dialog"></a>
 </p>
 
-一个基于原生javascript的网页对话框插件 
+一个基于原生javascript的网页对话框插件
 
 # 说明
 
