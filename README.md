@@ -5,7 +5,7 @@
   <a href="https://github.com/code-mcx/mcx-dialog"><img src="https://img.shields.io/badge/npm-v0.1.3-blue.svg" alt="mcx-dialog"></a>
 </p>
 <p>
-  <a href="https://github.com/dxx/mcx-dialog/blob/master/README_zh.md">中文文档</a>
+  <a href="./README_zh.md">中文文档</a>
 </p>
 
 A dialog plugin for web page based on primary javascript.
@@ -56,7 +56,7 @@ Then you can get an object named `mcxDialog`.
   mcxDialog.loading({src: "dist/img"});
 </script>
 ```
-More use see the examples directory: [examples](https://github.com/code-mcx/mcx-dialog/tree/master/examples).
+More use see the examples directory: [examples](./examples).
 
 ## Npm
 
