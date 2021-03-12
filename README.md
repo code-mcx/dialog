@@ -5,7 +5,7 @@
   <a href="https://github.com/code-mcx/mcx-dialog"><img src="https://img.shields.io/badge/npm-v0.1.3-blue.svg" alt="mcx-dialog"></a>
 </p>
 <p>
-  <a href="https://github.com/code-mcx/mcx-dialog/blob/master/README_zh.md">中文文档</a>
+  <a href="https://github.com/dxx/mcx-dialog/blob/master/README_zh.md">中文文档</a>
 </p>
 
 A dialog plugin for web page based on primary javascript.
