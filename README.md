@@ -1,8 +1,8 @@
 # mcx-dialog
 
 <p>
-  <a href="https://github.com/code-mcx/mcx-dialog"><img src="https://img.shields.io/badge/language-javascript-green.svg" alt="mcx-dialog"></a>
-  <a href="https://github.com/code-mcx/mcx-dialog"><img src="https://img.shields.io/badge/npm-v0.1.3-blue.svg" alt="mcx-dialog"></a>
+  <a href="https://github.com/dxx/mcx-dialog"><img src="https://img.shields.io/badge/language-javascript-green.svg" alt="mcx-dialog"></a>
+  <a href="https://github.com/dxx/mcx-dialog"><img src="https://img.shields.io/badge/npm-v0.1.3-blue.svg" alt="mcx-dialog"></a>
 </p>
 <p>
   <a href="./README_zh.md">中文文档</a>
