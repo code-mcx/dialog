@@ -51,7 +51,7 @@
   mcxDialog.loading({src: "dist/img"});
 </script>
 ```
-更多使用请参见示例目录：[examples](./examples)
+更多使用请参见示例目录：[examples](https://github.com/dxx/mcx-dialog/tree/master/examples)
 
 ## Npm
 
